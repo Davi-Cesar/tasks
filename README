@@ -1,0 +1,31 @@
+# Listagem de todas as tasks -> OK
+
+# Atualização de uma task pelo `id` ->
+
+# Remover uma task pelo `id`
+
+# Marcar pelo `id` uma task como completa
+
+# E o verdadeiro desafio: Importação de tasks em massa por um arquivo CSV
+
+# Aplicação de Tarefas
+
+Este é um exemplo de aplicação de tarefas simples, onde você pode criar, listar, atualizar, remover e marcar tarefas como concluídas. Além disso, inclui a funcionalidade de importar tarefas em massa a partir de um arquivo CSV.
+
+## Funcionalidades
+
+### Criação de uma Task
+
+Para criar uma nova tarefa, você pode usar a rota `/tasks` com o método HTTP POST. Envie um JSON no corpo da requisição com os detalhes da tarefa.
+
+Exemplo de requisição:
+
+```http
+POST /tasks
+Content-Type: application/json
+
+{
+  "title": "Nova Tarefa",
+  "description": "Detalhes da nova tarefa"
+}
+```
