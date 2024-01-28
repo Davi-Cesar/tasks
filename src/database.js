@@ -41,6 +41,9 @@ export class Database {
   }
 
   delete(id) {
+    if() {
+      
+    }
     this.#persist();
   }
 }
