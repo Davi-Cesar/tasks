@@ -36,14 +36,36 @@ export class Database {
     return data;
   }
 
-  update(id) {
-    this.#persist();
+  update(table, id, data) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id == id);
+    const { description, title } = data;
+
+    if (rowIndex > -1) {
+      description
+        ? ((this.#database[table][rowIndex].description = description),
+          (this.#database[table][rowIndex].update_at = new Date()))
+        : "";
+      title
+        ? ((this.#database[table][rowIndex].title = title),
+          (this.#database[table][rowIndex].update_at = new Date()))
+        : "";
+      this.#persist();
+    }
   }
 
-  delete(id) {
-    if() {
-      
+  delete(table, id) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id == id);
+    if (rowIndex > -1) {
+      this.#database[table].splice(rowIndex, 1);
+      this.#persist();
     }
-    this.#persist();
+  }
+
+  completed(table, id) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id == id);
+    if (rowIndex > -1) {
+      this.#database[table][rowIndex].completed_at = true;
+      this.#persist();
+    }
   }
 }
