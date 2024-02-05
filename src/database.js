@@ -16,7 +16,7 @@ export class Database {
   }
 
   #persist() {
-    fs.writeFile("db.json", JSON.stringify(this.#database));
+    fs.writeFile(databasePath, JSON.stringify(this.#database, null, 2));
   }
 
   select(table) {
